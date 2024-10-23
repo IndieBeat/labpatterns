@@ -60,6 +60,7 @@ public class SymptomFactory {
 			if (respiratorySymptom.contains(symptomName))
 				return createRespiratorySymptom(symptomName, (int) index, impact);
 		}
+		//En vez de crear objeto y permitir duplicados usamos singleton y hacemos getInstance() y si aun no existe se crea.
 		return null;
 	}
 }
