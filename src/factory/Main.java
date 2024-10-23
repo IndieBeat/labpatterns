@@ -2,6 +2,7 @@ package factory;
 
 import domain.Covid19Pacient;
 import domain.Medicament;
+import factory.SymptomFactory;
 
 public class Main {
 
