@@ -13,16 +13,16 @@ import domain.Symptom;
 public class SymptomFactory {
 	public Map<Symptom, Integer> symptoms = new HashMap<Symptom, Integer>();
 	
-	public static Symptom createDigestiveSymptom(String symptomName,int index, int impact) {
-		return new DigestiveSymptom(symptomName, index, impact);
+	public static Symptom getDigestiveSymptom(String symptomName,int index, int impact) {
+		return DigestiveSymptom.getInstance(symptomName, index, impact);
 	}
 	
-	public static Symptom createNeuroMuscularSymptom(String symptomName,int index, int impact) {
-		return new NeuroMuscularSymptom(symptomName, index, impact);
+	public static Symptom getNeuroMuscularSymptom(String symptomName,int index, int impact) {
+		return NeuroMuscularSymptom.getInstance(symptomName, index, impact);
 	}
 	
-	public static Symptom createRespiratorySymptom(String symptomName,int index, int impact) {
-		return new RespiratorySymptom(symptomName, index, impact);
+	public static Symptom getRespiratorySymptom(String symptomName,int index, int impact) {
+		return RespiratorySymptom.getInstance(symptomName, index, impact);
 	}
 	
 	public static Symptom createSymptom(String symptomName) {
@@ -54,11 +54,11 @@ public class SymptomFactory {
 
 		if (impact != 0) {
 			if (digestiveSymptom.contains(symptomName))
-				return createDigestiveSymptom(symptomName, (int) index, impact);
+				return getDigestiveSymptom(symptomName, (int) index, impact);
 			if (neuroMuscularSymptom.contains(symptomName))
-				return createNeuroMuscularSymptom(symptomName, (int) index, impact);
+				return getNeuroMuscularSymptom(symptomName, (int) index, impact);
 			if (respiratorySymptom.contains(symptomName))
-				return createRespiratorySymptom(symptomName, (int) index, impact);
+				return getRespiratorySymptom(symptomName, (int) index, impact);
 		}
 		//En vez de crear objeto y permitir duplicados usamos singleton y hacemos getInstance() y si aun no existe se crea.
 		return null;
