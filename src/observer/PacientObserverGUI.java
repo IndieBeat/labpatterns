@@ -31,6 +31,7 @@ public class PacientObserverGUI extends JFrame implements Observer{
 		symptomLabel.setBounds(19, 38, 389, 199);
 		contentPane.add(symptomLabel);
 		symptomLabel.setText("Still no symptoms");
+		o.addObserver(this);
 		this.setVisible(true);
 	}
 
@@ -40,7 +41,7 @@ public class PacientObserverGUI extends JFrame implements Observer{
 		String	s="<html>	Pacient: <b>"+p.getName()+"</b>	<br>";
 		s=s+"Covid impact:	<b>"+p.covidImpact()+"</b><br><br>";
 		s=s+" _____________________	<br>	Symptoms:	<br>";
-		Iterator<Symptom> i = p.getSymptoms();
+		Iterator<Symptom> i = p.getSymptoms().iterator();
 		Symptom	p2;
 		while (i.hasNext())	{
 			p2=i.next();
