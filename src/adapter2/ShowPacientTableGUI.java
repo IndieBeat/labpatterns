@@ -1,6 +1,7 @@
 package adapter2;
 
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Font;
 
 import javax.swing.*;
@@ -26,11 +27,12 @@ public class ShowPacientTableGUI extends JFrame{
 		table = new JTable(tm);
 	    table.setRowHeight(36);
 	    JScrollPane pane = new JScrollPane(table);
-	    pane.setPreferredSize(
-	      new java.awt.Dimension(300, 200));
+	    pane.setPreferredSize(new Dimension(300, 200));
 	    this.getContentPane().add(pane);
 	    
-	  
+	    this.pack();
+	    table.revalidate();
+	    table.repaint();
   }
 
   private static void setFonts() {
