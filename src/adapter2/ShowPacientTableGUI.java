@@ -3,11 +3,15 @@ package adapter2;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import javax.swing.*;
 import javax.swing.table.TableModel;
 
 import domain.Covid19Pacient;
+import domain.Symptom;
 
 
 public class ShowPacientTableGUI extends JFrame{
@@ -23,6 +27,15 @@ public class ShowPacientTableGUI extends JFrame{
 	  	
 	  	setFonts();
 	    
+	  	Set<Symptom> s=pacient.getSymptoms();
+	  	List<Symptom> it=new ArrayList<Symptom>(s);
+	  	System.out.println("S: "+ it);
+		
+		System.out.println("Syntoms: "+ it.size());
+		for (Symptom ss:it) {
+			System.out.println("Syntoms: "+ss.getName());
+		}
+	  	
 	  	TableModel tm=new Covid19PacientTableModelAdapter(pacient);
 		table = new JTable(tm);
 	    table.setRowHeight(36);
